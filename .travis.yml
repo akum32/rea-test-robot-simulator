@@ -1,0 +1,7 @@
+language: csharp
+solution: ./src/ToyRobot.sln
+install:
+  - sudo apt-get install nunit-console
+script:
+  - xbuild /p:Configuration=Release ./src/ToyRobot.sln
+  - nunit-console ./src/ToyRobot.Lib.Tests/bin/Release/ToyRobot.Lib.Tests.dll ./src/ToyRobot.App.Tests/bin/Release/ToyRobot.App.Tests.dll
